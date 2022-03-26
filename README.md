@@ -3,7 +3,7 @@
 ## Key Requirement: Company needs documentation that employees did or did not perform overtime each week
 
 ## Models
-- Post -> date:date rationale:text
+-  X Post -> date:date rationale:text
 -  X User -> Devise
 -  X AdminUser -> STI
 
