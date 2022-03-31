@@ -4,28 +4,25 @@
 <ul class="custom-nav nav">
   <div class="col-10">
     <li class="nav-item">
-      <%= link_to "Home", root_path %>
+      <%= link_to "Home", root_path%>
     </li>
     <li class="nav-item">
-      <%= link_to "Time Entries", posts_path %>
+      <%= link_to "Time Entries", posts_path%>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" href="#">Messages</a>
+      <a class="link" href="#">Messages</a>
     </li>
   </div>
   <div class="col-2">
-  <li class="dropdown pull-right">
-      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown</a>
-    <ul class="dropdown-menu">
-      <li>
-        <a class="dropdown-item" href="#">Action</a>
-      </li>
-      <li class="divider">
-      </li>
-      <li>
-      <a class="dropdown-item" href="#">Separated link</a>
-      </li>
-    </ul>
-  </li>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown button
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= link_to "Edit Details", edit_user_registration_path, class: "dropdown-item" %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+
+      </div>
+    </div>
   </div>
 </ul>
