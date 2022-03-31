@@ -3,25 +3,33 @@ require 'application_helper'
 
 
 describe 'navigate' do
+  before do
+    User.create(email: "newmeail@cool.com", password: "12345671", password_confirmation: "12345671", first_name: "Peter", last_name: "Andersson")
+    visit user_session_path
+    fill_in 'user[email]', with: "newmeail@cool.com"
+    fill_in 'user[password]', with: "12345671"
+    click_on 'Log in'
+    visit posts_path
+  end
   describe 'index' do
     it "can be reached successfully" do
-      visit posts_path
       expect(page.status_code).to eq(200)
     end
 
     it "has a title of Posts" do
-      visit posts_path
       expect(page).to have_content(/Posts/)
+    end
+
+    it "has a list of Posts" do
+      post1 = Post.create(date: Date.today, rationale: "Post1", user_id: "1")
+      post2 = Post.create(date: Date.today, rationale: "Post2", user_id: "1")
+      visit posts_path
+      expect(page).to have_content(/Post1|Post2/)
     end
   end
 
   describe 'creation' do
     before do
-      User.create(email: "newmeail@cool.com", password: "12345671", password_confirmation: "12345671", first_name: "Peter", last_name: "Andersson")
-      visit user_session_path
-      fill_in 'user[email]', with: "newmeail@cool.com"
-      fill_in 'user[password]', with: "12345671"
-      click_on 'Log in'
       visit new_post_path
     end
     it 'has a new form that can be reached' do
