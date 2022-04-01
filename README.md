@@ -15,8 +15,8 @@
 - Needs to be documented if employee did not do overtime
 
 ## UI:
-- Bootstrap -> formatting
+- X Bootstrap -> formatting
 
 ## Refactor TODOS:
 - Refactor user association integration test in post_spec
-- Add full name for user
+- X Add full name for user
